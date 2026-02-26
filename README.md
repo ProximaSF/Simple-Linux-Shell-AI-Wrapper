@@ -4,6 +4,8 @@ The goal of this project is to integrate a simple AI wrapper to help the user be
 
 To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log content, it uses a custom shell command. In my case, it's `AIag`. For more details about arguments, please go to ....   The command calls the `AIag.sh` script. Within the script, it than calls the python script which will call the AI model using a API key and than reading the log content and return it's content upon successful exacution. 
 
+<hr>
+
 ## Setup Instruction:
 
 ### 1. Clone Repository
@@ -21,7 +23,7 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
 
   - **AWS_BEARER_TOKEN_BEDROCK**: AWS Bedrock API key
 
-  - **LOG_FILE**: File path to `recorded_session.log` for AI to read
+  - **LOG_FILE**: File path to `logging.log` for AI to read
 
 ### 2. Setup virtual environment (.venv)
 
@@ -56,7 +58,7 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
   mkdir bin
   ```
 
-### 5. Create `AIag` and `logging.sh` inside bin
+### 5. Create `logging.sh` and `AIag` inside bin
 
 - In `/home/{hostname}/bin` directory:
 
@@ -89,7 +91,7 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
 
 ### 7. Finally Reset system
 
-
+<hr>
 
 ## How to Use:
 
@@ -114,3 +116,7 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
 - Prompt: a *required* argument to ask AI a question based on the context it can see
 - Token: *optional* argument to determine how many token will be used for the output. 
 - Verbose: *optional* argument to echo other argument inputs
+
+## Side Notes:
+
+- While logging.sh is running, running commands like `clear` should not reset/clear the `recorded_session.log` 
