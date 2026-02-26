@@ -1,6 +1,6 @@
 # Simple Linux Terminal AI Wrapper
 
-The goal of this project is to integrate a simple AI wrapper to help the user better understand the outputs it receive fro the terminal invoked by the user. The output and input in the terminal is logged automatically after running `./shell_logging.sh` and is saved in a personal `log` directory inside the host (`/home/{hostname}`directory. 
+The goal of this project is to integrate a simple AI wrapper to help the user better understand the outputs it receive from the terminal invoked by the user. The output and input in the terminal is logged automatically after running `./shell_logging.sh` and is saved in a personal `log` directory inside the host (`/home/{hostname}`directory. 
 
 To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log content, it uses a custom shell command. In my case, it's `AIag`. For more details about arguments, please go to ....   The command calls the `AIag.sh` script. Within the script, it than calls the python script which will call the AI model using a API key and than reading the log content and return it's content upon successful exacution. 
 
@@ -74,7 +74,6 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
   chmod +x logging.sh 
   ```
   
-
 - <u>Repeat the same process for `AIag`</u>
   - Make sure the two file paths at the bottom of the script points to the right direction. 
     - The first path points to the `.venv` python interpreter
@@ -120,3 +119,13 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
 ## Side Notes:
 
 - While logging.sh is running, running commands like `clear` should not reset/clear the `recorded_session.log` 
+- The python script is configured for DeepSeek v3.2.
+  - Make sure the model variable is set for DeepSeek v3.2
+
+<hr>
+
+## Possible Future Improvement
+
+- Allow different models
+- Provide additional file
+- Default chat mode (without using file)
