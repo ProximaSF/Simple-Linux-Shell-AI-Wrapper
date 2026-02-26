@@ -89,7 +89,7 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
   export PATH="$PATH:/home/{hostname}/bin/AIag"
   ```
 
-### 7. Finally Reset system
+### 7. Finally Reset system (Might be Optional)
 
 <hr>
 
