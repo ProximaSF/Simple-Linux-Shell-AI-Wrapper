@@ -30,7 +30,6 @@ if [ -z "$PROMPT" ]; then
 fi
 
 
-echo "Running AI..."
 if [ "$VERBOSE" = true ]; then
   echo "Verbose on:"
   echo "Prompt: $PROMPT"

@@ -27,7 +27,7 @@ class AI_Assistant:
         with open(LOG_FILE, 'r', encoding='UTF-8') as f:
             f.seek(0)
             line = f.read()
-            
+
             prompt = self.prompt
             formatted_prompt = [{
                 "role": "user",
@@ -41,6 +41,7 @@ class AI_Assistant:
                 "top_p": 0.9,
             })
             try:
+                print("Running AI...")
                 # Invoke the model with the request.
                 response = self.client.invoke_model(modelId=MODEL_ID, body=body)
 
