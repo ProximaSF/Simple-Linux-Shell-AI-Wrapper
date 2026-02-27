@@ -46,6 +46,7 @@ class AI_Assistant:
 
 
     def output(self):
+        print(f"{result}\n{"**"*20}")
         self.check_log_file()
         result = self.ai_content()
         print(f"{result}\n{"**"*20}")
