@@ -104,7 +104,7 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
 
 3. Type `exit` to stop script (optional)
 
-4. Ask AI what are in the context
+4. Ask AI what's in the context
 
    ```bash
    AIag "What is this file?"
@@ -113,19 +113,26 @@ To run the AI (DeepSeek version 3.2) and ask question(s) pertain to the log cont
 ### Bash Script Arguments:
 
 - Prompt: a *required* argument to ask AI a question based on the context it can see
-- Token: *optional* argument to determine how many token will be used for the output. 
-- Verbose: *optional* argument to echo other argument inputs
+- Token (-tk): *optional* argument to determine how many token will be used for the output. 
+  - Default int: 150
+
+- Verbose (-v): *optional* argument to echo and return verbose from python
+- Model (-m): optional argument to chose which models to use
+  - Default model: `deepseek.v3.2`
+  - As of now, simply type `deepseek` or `claude` to change model
+
 
 ## Side Notes:
 
 - While logging.sh is running, running commands like `clear` should not reset/clear the `recorded_session.log` 
-- The python script is configured for DeepSeek v3.2.
-  - Make sure the model variable is set for DeepSeek v3.2
+- Python script is configured for DeepSeek v3.2 and claude_Sonnet4_6 for US.
+- Might need to fill out a form to use Claude on AWS Bedrock.
 
 <hr>
+## Possible Future Improvement Check List
 
-## Possible Future Improvement
-
-- Allow different models
-- Provide additional file
-- Default chat mode (without using file)
+- [x] Allow different models
+- [ ] Prevent AI response being logged in logging.log
+- [ ] Provide additional file
+- [ ] Default chat mode (without using file)
+- [ ] Find a job :/
