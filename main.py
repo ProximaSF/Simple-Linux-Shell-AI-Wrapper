@@ -74,5 +74,6 @@ if __name__ == "__main__":
             Prompt: {args.ai_prompt}
             Token Limit: {args.token}
             """
+        print(msg)
 
     main(args.ai_prompt, args.token, args.model)
