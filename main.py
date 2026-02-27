@@ -1,5 +1,4 @@
 import os
-import time
 import inspect
 from dotenv import load_dotenv
 import boto3
@@ -16,9 +15,8 @@ load_dotenv()
 API_KEY = os.getenv("AWS_BEARER_TOKEN_BEDROCK")
 DEFAULT_MODEL_ID = "deepseek.v3.2"
 # TEST_LOG_FILE
-LOG_FILE = str(os.getenv("FILE_LOG"))
+LOG_FILE = str(os.getenv("TEST_FILE_LOG"))
 MODELS_IDS = ["deepseek.v3.2", "us.anthropic.claude-sonnet-4-6"]
-
 
 
 class AI_Assistant:
@@ -27,11 +25,6 @@ class AI_Assistant:
         self.token_limit = token_limit 
         self.model_id = model_id
         self.client = boto3.client("bedrock-runtime", region_name='us-east-1') 
-
-    def check_log_file(self):
-        while not os.path.exists(LOG_FILE):
-            print(f"Waiting for log file '{LOG_FILE}' to be created...")
-            time.sleep(0.5)
 
     def ai_content(self):
         is_model = [model for model in MODELS_IDS if self.model_id.lower() in model.lower()]
@@ -47,10 +40,13 @@ class AI_Assistant:
 
 
     def output(self):
-        print(f"\n{"**"*20}")
-        self.check_log_file()
-        result = self.ai_content()
-        print(f"{result}\n{"**"*20}")
+        if os.path.exists(LOG_FILE):
+            print(f"\n{"**"*20}")
+            result = self.ai_content()
+            print(f"{result}\n{"**"*20}")
+            return
+        else:
+            print(f'{LOG_FILE} doees not exists')
 
 
 def main(prompt, token_limit, model_id):
