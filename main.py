@@ -15,7 +15,7 @@ load_dotenv()
 API_KEY = os.getenv("AWS_BEARER_TOKEN_BEDROCK")
 DEFAULT_MODEL_ID = "deepseek.v3.2"
 # TEST_LOG_FILE
-LOG_FILE = str(os.getenv("TEST_FILE_LOG"))
+LOG_FILE = str(os.getenv("FILE_LOG"))
 MODELS_IDS = ["deepseek.v3.2", "us.anthropic.claude-sonnet-4-6"]
 
 
@@ -67,7 +67,14 @@ def parse_args(arglist):
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     if args.verbose:
-        print("Verbose mode enabled.")
+        msg = f"""
+            Verbose enabled (python):
+            ------------------------------------------
+            Using Model: {args.model}
+            Prompt: {args.ai_prompt}
+            Token Limit: {args.token}
+            """
+        print(f)
         print(f"Using Model: {args.model}")
         print(f"AI Prompt: {args.ai_prompt}")
         print(f"Token Limit: {args.token}")
