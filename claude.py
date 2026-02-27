@@ -27,7 +27,7 @@ def claude_Sonnet4_6(log_file_path, prompt, model_id, token_limit, client):
 
             # Extract and print the response text.
             response_text = response["output"]["message"]["content"][0]["text"]
-            print(response_text)
+            return response_text
 
         except (ClientError, Exception) as e:
             print(f"ERROR: Can't invoke '{model_id}'. Reason: {e}")
