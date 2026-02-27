@@ -4,9 +4,9 @@ PROMPT=""
 VERBOSE=false
 
 # Check of flag
-while getopts "n:v" opt; do
+while getopts "p:v" opt; do
   case $opt in
-    n) PROMPT="$OPTARG" ;;
+    p) PROMPT="$OPTARG" ;;
     v) VERBOSE=true ;;
     \?) echo "Invalid option -$OPTARG" >&2; exit 1 ;;
   esac
@@ -36,4 +36,4 @@ if [ "$VERBOSE" = true ]; then
   echo "---"*10
 fi
 
-"/home/kali/Desktop/Python Projects/.venv/bin/python" "/home/kali/Desktop/Python Projects/main.py" "$PROMPT" "$@"
+"/home/kali/Desktop/Linux AI Wrapper/.venv/bin/python" "/home/kali/Desktop/Linux AI Wrapper/main.py" "$PROMPT" "$@"
