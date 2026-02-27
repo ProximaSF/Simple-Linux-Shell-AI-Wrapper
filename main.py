@@ -74,9 +74,5 @@ if __name__ == "__main__":
             Prompt: {args.ai_prompt}
             Token Limit: {args.token}
             """
-        print(f)
-        print(f"Using Model: {args.model}")
-        print(f"AI Prompt: {args.ai_prompt}")
-        print(f"Token Limit: {args.token}")
 
     main(args.ai_prompt, args.token, args.model)
